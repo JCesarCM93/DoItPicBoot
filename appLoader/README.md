@@ -16,7 +16,7 @@ Install CH340E driver. CH340E is a TTL (serial) to USB converter and vice versa.
 Install appLoader.
 
 ---------------------------------------------------------
-# PROGRAM HEX FILE.
+# PROGRAM HEX FILE
 - Plug one end of the USB cable into Board and plug the other end into a USB port on your PC
 - Use the COM Port Number drop down list to select the serial port of board.
 - Select Open.
@@ -30,7 +30,7 @@ To stop using this feature, uncheck Auto program.
 
 If an error is encountered during hex file importing or device programming, the application will not program.
 
-## Fast Erase:
+## Fast Erase
 When checked, the appLoader will attempt to erase the device as fast as possible, erasing only the space for programing. When unchecked, the appLoader erase all ROM.
 
 ---------------------------------------------------------
@@ -43,7 +43,7 @@ The appLoader application include the Serial Terminal tool. This allows appLoade
 - development
 - The tool supports full duplex asynchronous serial communications from 50bps to 2Mbps baud, including custom non-standard baud rates.
 
-## Setting the Baud Rate and Connecting.
+## Setting the Baud Rate and Connecting
 - Plug one end of the USB cable into Board and plug the other end into a USB port on your PC
 - change to desired custom baud rate for the serial port.
 - Use the COM Port Number drop down list to select the serial port of board.
@@ -56,7 +56,7 @@ The current mode selected is displayed by the buttons on the upper left hand of 
 - HEX Mode: Displays the hex values of bytes received from the target’s UART in the terminal.
 - BIN Mode: Displays the BIN values of bytes received from the target’s UART in the terminal.
 
-## Bytes may be transmitted in three modes.
+## Bytes may be transmitted in three modes
 - ASCII: Send the characters of the BOX
 - ASCII+CR:Send the characters of the BOX. Will automatically transmit the carriage return (0x0D) character at the end of a string when Send is clicked.
 - ASCII+LF: Send the characters of the BOX. Will automatically transmit the carriage return (0x0A) character at the end of a string when Send is clicked.
