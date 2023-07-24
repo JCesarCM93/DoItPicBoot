@@ -1,5 +1,7 @@
-Bootloader contains assembler macros perform a similar function to the preprocessor's #define directive, in that they define a single identifier and their
-location counter to represent a sequence of code. Some assembler macros have arguments, and there are characters that have special meaning inside macro definitions.
+Bootloader contains assembler macros perform a similar function to the preprocessor's #define directive, in that 
+they define a single identifier and their location counter to represent sequence of instructions and are very similar to functions 
+
+Some assembler macros have arguments, and there are characters that have special meaning inside macro definitions.
 ```
 #define InitSys	    0x6C0
 #define InitPinOut  0x700
@@ -9,7 +11,10 @@ location counter to represent a sequence of code. Some assembler macros have arg
 #define UartRead    0x7C0
 #define UartWrite   0x7E0
 ```
+
+The sections below shows macros description, instructions that make up and an exaple
 ## InitPinOut
+It's used to initialize the minimal hardware; LED1, LED2, BUTTON, TX and RX pins
 
     BANKSEL ANSELA
     SETF    ANSELA
@@ -34,6 +39,7 @@ e.g.
 CALL InitPinOut
 ```
 ## InitOscFrq
+It's used to initialize the oscillator frequency. Put the value in WREG then call macro. The configured value shows in the following table. The macro sets oscillator division to 1 before the return.
 
 | Value | Frequency |
 | --- | --- |
@@ -59,6 +65,7 @@ CALL   InitOscFrq   //and set OscDiv:1
 ```
 
 ## InitOscDiv
+It's used to configure the oscillator division. Put the value in WREG then call macro. The configured value shows in the following table.
 
 | Value | Division value |
 | --- | --- |
@@ -89,6 +96,12 @@ MOVLW  6            //Divide Fosc/64
 CALL   InitOscDiv   //500KHz internal logic
 ```
 ## InitUart
+it's used to initializing the UART module, TX RX pins and BaudRate. Put the value in WREG then call macro. The following formula helps to calculation of desired baud rate.
+
+```math
+BaudRate=Fosc/(4*(value+1))
+```
+
     BANKSEL U1CON0
     MOVWF   U1BRGL,B
     CLRF    U1BRGH,B
@@ -116,10 +129,12 @@ CALL   InitOscDiv   //500KHz internal logic
 
 e.g.
 ```
-MOVLW  159        //IF Fosc @64MHz
+MOVLW  159        //If Fosc @64MHz
 CALL   InitUart   //UART is configured @100Kbps
 ```
 ## UartRead
+Reads the input character, doesn't return until a character appears.
+
     UartRead:
     BTFSS   U1RXIF
     BRA     UartRead
@@ -131,6 +146,9 @@ e.g.
 CALL   UartRead // read RX value and saved in WREG
 ```
 ## UartWrite
+
+Waits if there is a transmission pending, then writes the character
+
     UartWrite:
     BTFSS   U1TXIF
     BRA     UartWrite
@@ -144,6 +162,8 @@ MOVLW  '3'
 CALL   UartWrite // send WREG value to TX
 ```
 ## InitSys
+Calls default macros to initialize the system for the most examples
+
     CALL    InitPinOut
     MOVLW   0b00001000
     CALL    InitOscFrq
