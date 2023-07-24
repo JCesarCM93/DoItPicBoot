@@ -1,5 +1,5 @@
 Bootloader contains assembler macros perform a similar function to the preprocessor's #define directive, in that 
-they define a single identifier and their location counter to represent sequence of instructions and are very similar to functions 
+they define a single identifier and their location counter to represent sequence of instructions and are very similar to functions .
 
 Some assembler macros have arguments, and there are characters that have special meaning inside macro definitions.
 ```
@@ -12,9 +12,9 @@ Some assembler macros have arguments, and there are characters that have special
 #define UartWrite   0x7E0
 ```
 
-The sections below shows macros description, instructions that make up and an exaple
+The sections below shows macros description, instructions that make up and an exaple.
 ## InitPinOut
-It's used to initialize the minimal hardware; LED1, LED2, BUTTON, TX and RX pins
+It's used to initialize the minimal hardware; LED1, LED2, BUTTON, TX and RX pins.
 
     BANKSEL ANSELA
     SETF    ANSELA
@@ -147,7 +147,7 @@ CALL   UartRead // read RX value and saved in WREG
 ```
 ## UartWrite
 
-Waits if there is a transmission pending, then writes the character
+Waits if there is a transmission pending, then writes the character.
 
     UartWrite:
     BTFSS   U1TXIF
@@ -162,7 +162,7 @@ MOVLW  '3'
 CALL   UartWrite // send WREG value to TX
 ```
 ## InitSys
-Calls default macros to initialize the system for the most examples
+Calls default macros to initialize the system for the most examples.
 
     CALL    InitPinOut
     MOVLW   0b00001000
