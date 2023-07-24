@@ -59,7 +59,7 @@ The current mode selected is displayed by the buttons on the upper left hand of 
 ## Bytes may be transmitted in three modes
 - ASCII: Send the characters of the BOX
 - ASCII+CR:Send the characters of the BOX. Will automatically transmit the carriage return (0x0D) character at the end of a string when Send is clicked.
-- ASCII+LF: Send the characters of the BOX. Will automatically transmit the carriage return (0x0A) character at the end of a string when Send is clicked.
+- ASCII+LF: Send the characters of the BOX. Will automatically transmit the line feed (0x0A) character at the end of a string when Send is clicked.
 - ASCII+CR+LF: Send the characters of the BOX. Will automatically transmit the carriage return (0x0D) and line feed (0x0A) characters at the end of a string when Send is clicked.
 - HEX: Send the hex values of the BOX. write a sequence of one or more hex values in one of the boxes (ex. 02 04 56)
 - BIN: Send the bin values of the BOX. write a sequence of one or more bin values in one of the boxes (e.g., 011 01010100)
