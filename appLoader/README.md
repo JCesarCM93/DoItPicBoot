@@ -22,7 +22,6 @@ Install appLoader.
 # PROGRAM HEX FILE
 - Plug one end of the USB cable into Board and plug the other end into a USB port on your PC
 - Use the COM Port Number drop down list to select the serial port of board.
-- Select Open.
 - To open a compiled program (hex file) to be programmed into the target device, select Open File. Browse for the hex file and click Open. Click Program the device will be erased and programmed with the hex code previously imported.
 ## Auto program
 This feature allows the appLoader to automatically read a hex file and write it to a connected board when the hex file is updated.
