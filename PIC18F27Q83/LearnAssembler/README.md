@@ -43,3 +43,74 @@ Then right-click on “Source Files”, select “New”, and then select “Oth
 10. Choose File Name and click “Finish” to create the file.
 
 ![image](https://github.com/JCesarCM93/DoItPicBoot/assets/40074332/cb7faa6e-712d-4e07-949f-02d7db61a036)
+
+# Example 01 UART_WREG
+
+    PROCESSOR 18f27Q83
+    #include <xc.inc>
+      
+    #define InitSys	    0x6C0    
+    #define InitPinOut  0x700
+    #define InitOscFrq  0x740
+    #define InitOscDiv  0x760
+    #define InitUart    0x780
+    #define UartRead    0x7C0
+    #define UartWrite   0x7E0
+            
+    PSECT resetVec,space=2
+    org 0x800
+  
+      CALL    InitSys
+    LOOP:	
+      CALL    UartRead     // read data from serial and save in WREG
+      ADDLW   1            // add 1 unit of WREG
+      Call    UartWrite    // send value
+      GOTO    LOOP         // go to loop
+
+![image](https://github.com/JCesarCM93/DoItPicBoot/assets/40074332/173f5f82-79ed-46fe-af28-e1be546078a4)
+
+    PROCESSOR 18f27Q83
+    #include <xc.inc>
+        
+    #define InitSys	    0x6C0    
+    #define InitPinOut  0x700
+    #define InitOscFrq  0x740
+    #define InitOscDiv  0x760
+    #define InitUart    0x780
+    #define UartRead    0x7C0
+    #define UartWrite   0x7E0
+            
+    org 0x0
+    Inputs:
+     DS 1 ;1 byte for IN
+    Outputs:
+     DS 1 ;1 byte for Out
+     
+    PSECT resetVec,space=2
+    org 0x800
+        CALL    InitSys
+    LOOP:	
+        CALL    UartRead     // read data from serial and save in WREG
+        
+        MOVWF   Inputs,A	 // save data in Inputs
+        CLRF    Outputs,A	 // Clear outputs
+        
+    //and logic
+        BTFSS   Inputs,0,A	 // bit 0 test, skip if 1
+        GOTO    OR_Logic	 // if bit is 0 AND logic is false
+        BTFSS   Inputs,1,A   // bit 1 test, skip if 1
+        GOTO    OR_Logic	 // if bit is 0 AND logic is false
+        BSF	    Outputs,0,A  // bit 0 and 1 are true, and logis is true
+    //or logic
+    OR_Logic:
+        BTFSC   Inputs,2,A   // bit 2 test, skip if 0
+        BSF	    Outputs,1,A  // if bit is 1 OR logic is true
+        BTFSC   Inputs,3,A   // bit 3 test, skip if 0
+        BSF	    Outputs,1,A  // if bit is 1 OR logic is true
+        
+        MOVF    Outputs,0,0  // load Outputs in WREG
+        Call    UartWrite    // send value
+        GOTO    LOOP         // go to loop
+
+
+![image](https://github.com/JCesarCM93/DoItPicBoot/assets/40074332/20e2bedb-a548-4c6e-a6aa-9176dc1afd0b)
