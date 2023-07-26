@@ -41,8 +41,7 @@ The appLoader application include the Serial Terminal tool. This allows appLoade
 
 - Displaying debug text output from the microcontroller
 - Developing and debugging a microcontroller UART interface
-- Interfacing with and sending commands to the microcontroller during 
-- development
+- Interfacing with and sending commands to the microcontroller during development
 - The tool supports full duplex asynchronous serial communications from 50bps to 2Mbps baud, including custom non-standard baud rates.
 
 ## Setting the Baud Rate and Connecting
