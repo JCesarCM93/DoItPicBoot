@@ -68,6 +68,8 @@ Then right-click on “Source Files”, select “New”, and then select “Oth
       GOTO    LOOP         // go to loop
 
 ![image](https://github.com/JCesarCM93/DoItPicBoot/assets/40074332/173f5f82-79ed-46fe-af28-e1be546078a4)
+# Example 02 AND_OR_LogicGates
+![image](https://github.com/JCesarCM93/DoItPicBoot/assets/40074332/120e7f2c-b9f9-4fed-a06b-6e11d6db6d81)
 
     PROCESSOR 18f27Q83
     #include <xc.inc>
