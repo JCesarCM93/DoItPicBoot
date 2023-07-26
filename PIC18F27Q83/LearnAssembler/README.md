@@ -38,13 +38,19 @@ Then right-click on “Source Files”, select “New”, and then select “Oth
 
 9. On the first screen of the New File wizard, select the “Assembler” category and then select “AssemblyFile.s”. Click “Next”.
 
-![image](https://github.com/JCesarCM93/DoItPicBoot/assets/40074332/bbb5d2a8-ab07-4393-ae10-8372cb70729b)
+![image](https://github.com/JCesarCM93/DoItPicBoot/assets/40074332/555e25f0-cc9e-4aea-ad2b-f3980b8506de)
 
-10. Choose File Name and click “Finish” to create the file.
+11. Choose File Name and click “Finish” to create the file.
 
 ![image](https://github.com/JCesarCM93/DoItPicBoot/assets/40074332/cb7faa6e-712d-4e07-949f-02d7db61a036)
 
 # Example 01 UART_WREG
+
+This example shows how to send data to the board and it return a value.
+
+![image](https://github.com/JCesarCM93/DoItPicBoot/assets/40074332/d8553d28-c8fa-4620-9cad-ff07dfc895fc)
+
+Paste this code into .s file on MplabX then press F11 to compille the code
 
     PROCESSOR 18f27Q83
     #include <xc.inc>
@@ -66,10 +72,29 @@ Then right-click on “Source Files”, select “New”, and then select “Oth
       ADDLW   1            // add 1 unit of WREG
       Call    UartWrite    // send value
       GOTO    LOOP         // go to loop
+      
+![image](https://github.com/JCesarCM93/DoItPicBoot/assets/40074332/b4efb801-5809-4f2c-8abf-6184ce7e8921)
+
+Plug one end of the USB cable into Board and plug the other end into a USB port on your PC. open appLoader aplication and follow the next steps.
+
+1. Use the COM Port Number drop down list to select the serial port of board.
+2. Select Open. Once the serial interface has been enabled.
+3. To open a compiled program (hex file) to be programmed into the target device, select Open File. Browse for the hex file and click Open.
+4. Click Program the device will be erased and programmed with the hex code previously imported.
+5. Change Serial Terminal to BIN mode.
+6. Type "00000001" in the first Comand Box
+7. Change the first Comand Box to BIN mode.
+8. Click send
 
 ![image](https://github.com/JCesarCM93/DoItPicBoot/assets/40074332/173f5f82-79ed-46fe-af28-e1be546078a4)
+
 # Example 02 AND_OR_LogicGates
+
+This example shows how implement AND OR ligic gates as shown in the following image
+
 ![image](https://github.com/JCesarCM93/DoItPicBoot/assets/40074332/120e7f2c-b9f9-4fed-a06b-6e11d6db6d81)
+
+Paste this code into .s file on MplabX then press F11 to compille the code
 
     PROCESSOR 18f27Q83
     #include <xc.inc>
@@ -114,5 +139,6 @@ Then right-click on “Source Files”, select “New”, and then select “Oth
         Call    UartWrite    // send value
         GOTO    LOOP         // go to loop
 
+Program the board and send values for test the code.
 
 ![image](https://github.com/JCesarCM93/DoItPicBoot/assets/40074332/20e2bedb-a548-4c6e-a6aa-9176dc1afd0b)
