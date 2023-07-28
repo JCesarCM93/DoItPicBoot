@@ -1,3 +1,7 @@
+![top (2)](https://github.com/JCesarCM93/DoItPicBoot/assets/40074332/d9b882d8-4355-435e-8c09-4c24c9135bb2)
+![bot (2)](https://github.com/JCesarCM93/DoItPicBoot/assets/40074332/8b69ed8b-2f1b-4f8e-8759-9685c2c40291)
+
+
 Bootloader contains assembler macros perform a similar function to the preprocessor's #define directive, in that 
 they define a single identifier and their location counter to represent sequence of instructions and are very similar to functions .
 
