@@ -1,68 +1,141 @@
-# appLoader
+# 📦 DoItPicBoot – Utilidad AppLoader
+**Autor:** JC93  
+**Fecha de lanzamiento:** 7 de julio de 2025  
 
-![appLoader](https://github.com/JCesarCM93/DoItPicBoot/assets/40074332/fbb16c3f-7b9c-41e9-ad50-bee30df70285)
+---
 
-Version: 0.1.
+## 🧭 Descripción general
 
-Release date: 2023-july-23.
+**AppLoader** es una utilidad gráfica (GUI) para programar microcontroladores PIC a través de USB utilizando un bootloader personalizado. Es compatible con archivos `.hex` generados por el compilador **MPLAB XC8** en formato **Intel HEX**.
 
-The appLoader utility is a GUI that allows you write the memories of pic microcontrollers over USB using their bootloaders. The input (file) parsing algorithm is compatible with all PIC18 INTEL Hex files produced by the MPLAB XC8 compiler.
+La comunicación se realiza mediante UART sin control de flujo por hardware, es decir, **no utiliza señales de sincronización como DTR o RTS**, lo que permite trabajar con convertidores USB-Serial simples como CH340E.
 
-The serial interface does not support hardware handshake.
+Adicionalmente, la aplicación cuenta con una herramienta de **terminal serial integrada**, útil para monitoreo, depuración y desarrollo de interfaces UART.
 
-This utility currently supports the following Boards:
+---
 
-- PIC18F27Q83 R0.1 DevBoard
+## 🛠️ Hardware compatible
 
-Install CH340E driver. CH340E is a TTL (serial) to USB converter and vice versa.
+- **DevBoard PIC18F67K22 R0.1**  
+  Se requiere la instalación del controlador **CH340E**, que convierte la señal USB a nivel TTL (UART).
 
-Install appLoader.
+---
 
----------------------------------------------------------
-# PROGRAM HEX FILE
-- Plug one end of the USB cable into Board and plug the other end into a USB port on your PC
-- Use the COM Port Number drop down list to select the serial port of board.
-- To open a compiled program (hex file) to be programmed into the target device, select Open File. Browse for the hex file and click Open. Click Program the device will be erased and programmed with the hex code previously imported.
-## Auto program
-This feature allows the appLoader to automatically read a hex file and write it to a connected board when the hex file is updated.
+## 🔧 Instalación
 
-To use this feature, check Auto program. After selecting a file, it will be written to the device. The appLoader will now monitor the selected hex file for updates. When the file has been updated, the application will automatically re-read the hex file and write to the Board.
+1. **Instala el controlador CH340E**  
+   Necesario para establecer comunicación USB-Serial con la tarjeta.
 
-To stop using this feature, uncheck Auto program.
+2. **Instala AppLoader**  
+   Descarga el **ejecutable directamente desde el repositorio**.  
+   > *No es necesario compilar desde el código fuente.*
 
-If an error is encountered during hex file importing or device programming, the application will not program.
+---
 
-## Fast Erase
-When checked, the appLoader will attempt to erase the device as fast as possible, erasing only the space for programing. When unchecked, the appLoader erase all ROM.
+## ⚙️ Conexión y programación de un archivo HEX
 
----------------------------------------------------------
-# SERIAL TERMINAL
-The appLoader application include the Serial Terminal tool. This allows appLoader to be used a serial UART Terminal for communicating with a PIC microcontroller. Potential uses include.
+1. **Conecta la tarjeta**  
+   Conecta el cable USB entre la tarjeta y la computadora. La tarjeta entrará automáticamente en modo **terminal serial**.
 
-- Displaying debug text output from the microcontroller
-- Developing and debugging a microcontroller UART interface
-- Interfacing with and sending commands to the microcontroller during development
-- The tool supports full duplex asynchronous serial communications from 50bps to 2Mbps baud, including custom non-standard baud rates.
+2. **Selecciona el puerto COM**  
+   En la interfaz de la aplicación **AppLoader**, elige el puerto correspondiente a la tarjeta conectada.
 
-## Setting the Baud Rate and Connecting
-- Plug one end of the USB cable into Board and plug the other end into a USB port on your PC
-- change to desired custom baud rate for the serial port.
-- Use the COM Port Number drop down list to select the serial port of board.
-- Select Open. Once the serial interface has been enabled, it may be disabled by clicking Disconnect. The baud rate may only be changed while the interface is disconnected.
+3. **Carga y programa el archivo HEX**  
+   Haz clic en **Open File**, selecciona tu archivo `.hex` y ábrelo.  
+   El dispositivo será programado automáticamente.  
+   Una vez finalizada la programación, la tarjeta volverá al modo **terminal serial** de forma automática.  
+   Este ciclo se repetirá cada vez que el archivo `.hex` sea actualizado y reprogramado.
 
-The UART Tool has three modes: ASCII, HEX and BIN.
-The current mode selected is displayed by the buttons on the upper left hand of the terminal. The button corresponding to the active mode will be displayed checked.
+---
 
-- ASCII mode: Serial bytes received from the Board are displayed as ASCII characters in the terminal. All bytes are displayed consecutively. To display a new line, the target UART must transmit the character values 0x0D (carriage return) or 0x0A (line feed) in sequence.
-- HEX Mode: Displays the hex values of bytes received from the target’s UART in the terminal.
-- BIN Mode: Displays the BIN values of bytes received from the target’s UART in the terminal.
+## ⚡ Auto programación
 
-## Bytes may be transmitted in three modes
-- ASCII: Send the characters of the BOX
-- ASCII+CR:Send the characters of the BOX. Will automatically transmit the carriage return (0x0D) character at the end of a string when Send is clicked.
-- ASCII+LF: Send the characters of the BOX. Will automatically transmit the line feed (0x0A) character at the end of a string when Send is clicked.
-- ASCII+CR+LF: Send the characters of the BOX. Will automatically transmit the carriage return (0x0D) and line feed (0x0A) characters at the end of a string when Send is clicked.
-- HEX: Send the hex values of the BOX. write a sequence of one or more hex values in one of the boxes (ex. 02 04 56)
-- BIN: Send the bin values of the BOX. write a sequence of one or more bin values in one of the boxes (e.g., 011 01010100)
-## Clear Screen
-Click the Clear button to clear all text or data from the terminal display window.
+La función de auto programación permite que AppLoader detecte cambios en un archivo `.hex` y reprograme automáticamente la tarjeta.
+
+- Esta opción se encuentra **activada por defecto**.
+- Una vez seleccionado el archivo `.hex`, AppLoader lo monitorea continuamente.
+- Cada vez que se detecta un cambio en el archivo, se vuelve a cargar y programa el dispositivo.
+- Para desactivar esta función, desmarca la casilla **Auto program**.
+
+> ⚠️ Si ocurre un error durante la carga del archivo o la programación, el proceso será cancelado.
+
+---
+
+## 🧽 Borrado rápido (Fast Erase)
+
+- Esta opción está **activada por defecto**.
+- **Con Fast Erase activado**: se realiza un **borrado completo** de la memoria **ROM y EEPROM**, lo que puede demorar un poco más.
+- **Con Fast Erase desactivado**: se borra únicamente la sección de memoria necesaria para escribir el nuevo código, funcionando como un **formateo rápido**, similar a Windows.
+
+---
+
+## 🖥️ Terminal serial integrada
+
+La aplicación AppLoader incluye una herramienta de terminal serial UART útil para:
+
+- Mostrar mensajes de depuración enviados por el microcontrolador.
+- Probar comunicación UART.
+- Enviar comandos al dispositivo durante el desarrollo.
+
+---
+
+### 🔌 Conexión
+
+1. Conecta la tarjeta al PC mediante el cable USB.
+2. Selecciona el puerto COM en AppLoader.
+3. Establece la velocidad de baudios deseada (solo puede cambiarse si el puerto está desconectado).
+4. Haz clic en **Open** para iniciar la comunicación, o en **Disconnect** para finalizarla.
+
+---
+
+## 🎛️ Modos disponibles
+
+La terminal permite visualizar y transmitir datos en diferentes formatos.  
+
+### Modos de recepción:
+
+- **ASCII**: Muestra los bytes recibidos como caracteres ASCII. Para un salto de línea, el microcontrolador debe enviar `0x0D` (carriage return) o `0x0A` (line feed).
+- **HEX**: Muestra los bytes recibidos en formato hexadecimal.
+- **BIN**: Muestra los bytes recibidos en formato binario.
+- **DEC**: Muestra los bytes recibidos en formato decimal (valores entre 0 y 255).
+
+### Modos de transmisión:
+
+- **ASCII**: Envía directamente los caracteres escritos.
+- **ASCII + CR**: Agrega un carácter `0x0D` al final.
+- **ASCII + LF**: Agrega un carácter `0x0A` al final.
+- **ASCII + CR + LF**: Agrega ambos caracteres `0x0D` y `0x0A`.
+- **HEX**: Enviar valores como `02 04 56`.
+- **BIN**: Enviar valores como `011 01010100`.
+- **DEC**: Enviar valores como `128 255 4`.
+
+> ⚠️ **Validación de formato:**  
+> Si se introduce un formato inválido en los modos **HEX**, **BIN** o **DEC**, AppLoader mostrará el mensaje `*FormatError` en la terminal, indicando que debe revisarse el formato o los caracteres ingresados.
+
+---
+
+## 🧹 Limpiar pantalla
+
+Haz clic en el botón **Clear** para limpiar todo el contenido de la terminal.
+
+---
+
+## 📜 Licencia
+
+Este proyecto está licenciado bajo **MIT**. Consulta el archivo [LICENSE](https://github.com/JCesarCM93/DoItPicBoot/blob/main/LICENSE) para más detalles.
+
+---
+
+## 📫 Contacto y contribuciones
+
+Si deseas colaborar con el desarrollo, reportar errores o proponer mejoras, puedes hacerlo directamente a través de GitHub mediante Issues o Pull Requests.
+
+---
+
+## 🚀 Ideas para futuras versiones (opcional)
+
+- Soporte para otros modelos de microcontroladores PIC.
+- Actualización de firmware de la tarjeta desde AppLoader.
+- Versión por línea de comandos (CLI) para automatización.
+- Verificación automática del contenido grabado (Verify after write).
+- Respaldo y restauración de EEPROM.
