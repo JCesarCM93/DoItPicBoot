@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="AppLoader v0_2.exe" version="0.1.0.0" publicKeyToken="7272423a10d59fec" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="AppLoader v0_2" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="AppLoader v0_2.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppLoader v0_2.exe" size="44504">
+      <assemblyIdentity name="AppLoader v0_2" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>qFoNTDKlJVSaMrPEbPSdEiw1MZ+ft8cfIIP2wcCCvnw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="AppLoader v0_2.exe.config" size="187">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>+CM46OnHRrXZXNLMx7+U3V3iubiYL//d8hGOR13lDhU=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=AzureAD\JulioMendoza" issuerKeyHash="628c6f6d26e2ea9c907d06ed2c80e69a4ea5f309" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>uXxGeurZr75vC2RAIwwVtRPd56b1dqqXkDOCurP19Pg=</DigestValue></Reference></SignedInfo><SignatureValue>nIjskXHMSg8WXspLQx1U6aduDuqByns57pqffqQcCUNU4uAh5Ov54wqQoqZAxJsIa4R7ipx5L1w8tdX8GYohblA808zgyVzSxOTCqgW8GvMahE2q0sk5zkk2xgYM5Ix2IQolNL2sV3bavBjQTRc6+Bd+JZil5+3dwYRImNenQJM=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>y/QSel7hX07UVp7UaGRISz7VEA2euutnGtzPWjqlNFoG6gbjHgL3TpqjeIMpJCUNivAGdcGcWBDNkhxppAgyx/ArrGYpjg9N+fvXDrfm/nBqV6X/PYOJYBT5PJhMlGlPCIFi1/79RIwYjP2OhXkBQK6vcW7dwInOjEfHovYhWcU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="f8f4f5b3ba82339097aa76f5a6e7dd13b5150c2340640b6fbeafd9ea7a467cb9" Description="" Url=""><as:assemblyIdentity name="AppLoader v0_2.exe" version="0.1.0.0" publicKeyToken="7272423a10d59fec" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=AzureAD\JulioMendoza</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>Nj/7j2DjqfMMcAjmtyvVZiRO8YDr0cTMKfzWFq4XKpw=</DigestValue></Reference></SignedInfo><SignatureValue>NKSKoQ2US82k5lm46SjiSdKuCQVV+xvoCEbMzAJA8NFbjOp+LMonYXx0mcddjfZcSSJikAXoKt4pE+8amGhzXG/XttfEyi9YOM9ExwGyw5l6DYkNwp4pWqa8zHMhE6xIrxlLqGrmcCqDBQJaMoWHhds4u419n1WLL+E5uVzDYsI=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>y/QSel7hX07UVp7UaGRISz7VEA2euutnGtzPWjqlNFoG6gbjHgL3TpqjeIMpJCUNivAGdcGcWBDNkhxppAgyx/ArrGYpjg9N+fvXDrfm/nBqV6X/PYOJYBT5PJhMlGlPCIFi1/79RIwYjP2OhXkBQK6vcW7dwInOjEfHovYhWcU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB6TCCAVKgAwIBAgIQb4TXz+Nnpa1O1hadlI+NgTANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDHigAQQB6AHUAcgBlAEEARABcAEoAdQBsAGkAbwBNAGUAbgBkAG8AegBhMB4XDTI1MDYyMDA0MzczOFoXDTI2MDYyMDEwMzczOFowMzExMC8GA1UEAx4oAEEAegB1AHIAZQBBAEQAXABKAHUAbABpAG8ATQBlAG4AZABvAHoAYTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAy/QSel7hX07UVp7UaGRISz7VEA2euutnGtzPWjqlNFoG6gbjHgL3TpqjeIMpJCUNivAGdcGcWBDNkhxppAgyx/ArrGYpjg9N+fvXDrfm/nBqV6X/PYOJYBT5PJhMlGlPCIFi1/79RIwYjP2OhXkBQK6vcW7dwInOjEfHovYhWcUCAwEAATANBgkqhkiG9w0BAQsFAAOBgQC7406nfqgAOO0Ed0IqLd7Qru519CHiIMgc1+UIhqCa8LeoVyrX7d7BQBQY8AZ5FZHAmJDyonCZbwld3aFtq1WBlRMJ8RfpMofGWLGl4N9VHkcef8RwlPoO8NnmQk2fe9YezyNCEvRXYw2p/Go0I9tVpMuHjvG858kmgzwXo9VsIA==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
