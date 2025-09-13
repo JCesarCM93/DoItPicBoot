@@ -1,7 +1,7 @@
 
 # DevBoard PIC18F67K22 - Macros y funciones ensamblador para bootloader
 
-Este directorio contiene las macros en lenguaje ensamblador utilizadas para la inicialización y control del microcontrolador **PIC18F27Q83**, empleadas en el bootloader compatible con la utilidad **DoItPicBoot - AppLoader**.
+Este directorio contiene las macros en lenguaje ensamblador utilizadas para la inicialización y control del microcontrolador **PIC18F67K22**, empleadas en el bootloader compatible con la utilidad **AppLoader**.
 
 Las macros implementan funciones de inicialización del sistema, manejo del UART, configuración del oscilador y control de pines, facilitando la programación y comunicación serial.
 
