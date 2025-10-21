@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>com.microchip.mplab.nbide.embedded.makeproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/make-project/1">
+            <name>P27_example_uart_table_message</name>
+            <name>P23_example_led_rotate_portE</name>
+            <name>P22_example_uart_manual_rotate</name>
+            <name>P21_example_uart_auto_rotate</name>
+            <name>P20_example_uart_rotate_right_carry</name>
+            <name>P19_example_uart_rotate_right_nc</name>
+            <name>P18_example_uart_rotate_no_carry</name>
+            <name>P17_example_uart_rotate_led</name>
+            <name>P16_example_uart_rotate_condition</name>
+            <name>P15_example_uart_bitrotation</name>
+            <name>P14_example_uart_sum_overflow</name>
+            <name>P13_example_uart_fibonacci</name>
+            <name>P12_example_uart_multiplication</name>
+            <name>P11_example_uart_subtraction</name>
+            <name>P05_example_uart_increment_led</name>
+            <name>P04_example_uart_paritycheck</name>
+            <name>P03_example_uart_signcheck</name>
+            <name>P02_example_uart_echo_store</name>
+            <name>P01_example_uart_echo</name>
+            <creation-uuid>c8cd0e35-0ff2-4d74-8574-7c39ad8c07f5</creation-uuid>
+            <make-project-type>0</make-project-type>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
+            <make-dep-projects/>
+            <sourceRootList>
+                <sourceRootElem>.</sourceRootElem>
+            </sourceRootList>
+            <confList>
+                <confElem>
+                    <name>default</name>
+                    <type>2</type>
+                </confElem>
+            </confList>
+            <formatting>
+                <project-formatting-style>false</project-formatting-style>
+            </formatting>
+        </data>
+    </configuration>
+</project>
