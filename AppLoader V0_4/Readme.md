@@ -1,6 +1,6 @@
-# 📦 AppLoader V0_3 – Utilidad AppLoader
+# 📦 AppLoader V0_4 – Utilidad AppLoader
 **Autor:** JC93  
-**Fecha de lanzamiento:** 27 de agosto de 2025  
+**Fecha de lanzamiento:** 03 de octubre de 2026  
 
 ---
 
